@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+*.suo
+*.json
+*.sqlite
+*.db
+*.opendb
+*.vcxproj
+*.filters
+*.user
+*.sln
+*.ipch
