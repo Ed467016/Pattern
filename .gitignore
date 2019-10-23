@@ -40,3 +40,5 @@
 *.user
 *.sln
 *.ipch
+/Pattern/src/Debug
+/Pattern/Debug
