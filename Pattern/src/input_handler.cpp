@@ -1,7 +1,7 @@
 #include "input_handler.h"
 
 namespace pattern {
-	vector<string> input_handler::get_inputs(istream& is, uint8_t& n, uint8_t& m, uint8_t& k, map<string, double>& costs)
+	vector<string> input_handler::get_inputs(istream& is, uint8_t& n, uint8_t& m, uint8_t& k, map<string, double>& costs, clock_t& t)
 	{
 		string temp;
 		is >> temp;
@@ -12,6 +12,7 @@ namespace pattern {
 
 		is >> temp;
 		k = stoi(temp);
+		t = clock();
 
 		uint8_t rows_count = n + k;
 		vector<string> result;

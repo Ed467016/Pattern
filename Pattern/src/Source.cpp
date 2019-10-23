@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <time.h>
 #include "global.h"
 #include "parser.h"
 #include "form.h"
@@ -14,8 +15,12 @@ int main() {
 	input_handler ih;
 	parser prs;
 
+	clock_t t;
 	cout << "Input:: " << "\n";
-	auto input = ih.get_inputs(cin, n, m, k, costs);
+	auto input = ih.get_inputs(cin, n, m, k, costs, t);
 	auto forms = prs.parse_forms(input);
+	t = clock() - t;
+	t = t / (CLOCKS_PER_SEC / 1000);
+	
 	getchar();
 }

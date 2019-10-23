@@ -22,5 +22,16 @@ namespace pattern {
 		string two_square[2] = { string("xx0"), string("000") }; // xx
 		string three_square[2] = { string("xxx"), string("000") }; // xxx
 		string three_lined_square[2] = { string("xx0"), string("x00") }; // xx
+
+		bool getCorners(
+			const vector<string>&,
+			bool**,
+			matrix_corners&,
+			const uint8_t,
+			const uint8_t,
+			const uint8_t&,
+			const uint8_t&);
+
+		vector<string*> getSection(const vector<string>&, const matrix_corners&);
 	};
 }
