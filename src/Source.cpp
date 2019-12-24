@@ -4,37 +4,50 @@
 #include <cassert>
 #include <algorithm>
 
+// INVARIANT
 const int INF = 1000 * 1000;
 
+// 9 types of figures. 8x8 board
 int minCost[9][8][8]; // [orientation][i][j]
 
-// 0 #
-
-// 1 ##
-
-// 2 #
-//   #
-
-// 3 ###
-
-// 4 #
-//   #
-//   #
-
-// 5 ##
-//   #.
-
-// 6 #.
-//   ##
-
-// 7 ##
-//   .#
-
-// 8 .#
-//   ##
+/*
+	0 #
+	
+	1 ##
+	
+	2 #
+	  #
+	
+	3 ###
+	
+	4 #
+	  #
+	  #
+	
+	5 ##
+	  #.
+	
+	6 #.
+	  ##
+	
+	7 ##
+	  .#
+	
+	8 .#
+	  ##
+*/
 
 int sizeJ;
-
+/*
+	ALL BIT ALIGNMENTS DONE FOR CHECKING NEXT FIELDS. 1 is 1 field next to owner, 3(11)` 2 fields, 7(111)` 3 fields
+	
+	i: x coordinate.
+	pos: y coordinate.
+	code0: form pattern's 1 field descriptor
+	code1: form pattern's 2 field descriptor
+	code2: form pattern's 3 field descriptor
+	cost: total cost
+*/
 void go(int i, int pos, int code0, int code1, int code2, int cost, std::vector<int>& profileCost) {
 	if (pos == sizeJ) {
 		assert(1 <= sizeJ && sizeJ <= 8);
@@ -111,6 +124,10 @@ void go(int i, int pos, int code0, int code1, int code2, int cost, std::vector<i
 }
 
 int main() {
+	// Inputs
+	// sizeI: N
+	// sizeJ: M
+	// nTypes: K
 	int sizeI, nTypes;
 	scanf_s("%d %d %d", &sizeI, &sizeJ, &nTypes);
 	std::vector<std::vector<int>> room(sizeI + 2, std::vector<int>(sizeJ, 2));
@@ -122,6 +139,7 @@ int main() {
 	for (int o = 0; o < 9; o++) {
 		for (int i = 0; i < sizeI; i++) {
 			for (int j = 0; j < sizeJ; j++) {
+				// Initializitaion with invariant value.
 				minCost[o][i][j] = INF;
 			}
 		}

@@ -1,2 +1,3 @@
-# Pattern
-Given the floor estimate cost to fill in with patterns
+# Patterns matching
+
+Solution to [https://acmp.ru/index.asp?main=task&id_task=239](this) algorithmic problem.
